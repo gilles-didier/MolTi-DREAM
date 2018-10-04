@@ -9,6 +9,7 @@ usage: molti-console [options] <input file1> <input file2> ...
 options are
 	-o <file name>      		set the output file name prefix
 	-p <real number>    		set the Newman modularity resolution parameter (set to 1 as default)
+	-r <number of rand.>		switch to randomized Louvain and set the number of randomizations
 	-g <weight> <input file> 	add the graph from <input file> with weight <weight>
 	-s                  		compute partition on each graph individually and on the sum graph
 	-h                  		display help
