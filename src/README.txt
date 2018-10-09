@@ -61,3 +61,25 @@ options are
 
 usage: filter_graph <input file> [output file]
 
+--------------------
+
+ 'simul' first simulates random multiplex networks with g vertices and from 1 to t layers with a balanced community structure of c communities (i simulations for each number of layers). It next detects communities by using aggregation and multiplex-modularity approaches and computes the adjusted Rand index between the reference community structure and the detected one. It writes a '.csv' file containing the means and the standard deviations of the adjusted Rand indexes for each method, with the following format:
+	 Column 1: number of layers
+	 Column 2 and 3: mean and standard deviation obtained with the multiplex-modularity approach
+	 Column 4 and 5: mean and standard deviation obtained with the sum-aggregation approach
+	 Column 6 and 7: mean and standard deviation obtained with the intersection
+	 Column 6 and 7: mean and standard deviation obtained with the union aggregation approach. 
+
+usage: simul <options> <output file name>
+
+Options:
+	-g <number>	set the number of vertices of the random graphs (50 as default)
+	-t <number>	set the max number of random graphs (10 as default)
+	-c <number>	set the number of classes (3 as default)
+	-i <number>	set the number of iterations (4 as default)
+	-p <prob intra> <prob inter>	add a new pair of probas
+	-a  <number>	set the modularity parameter (1 as default)
+	-m <number>	set the number of simultaneous threads
+	-h	display help message
+ 
+

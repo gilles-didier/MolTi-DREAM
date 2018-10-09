@@ -13,7 +13,7 @@ for f in *.tmp; do
 	done
 	h=`ls *.new`
 # here one can change the molti-console option (resolution parameter etc.)
-	../src/molti-console -r 10 -p 1 -f s -r 1 -o `basename $f | cut -d'.' -f1`.clstmp $h
+	../src/molti-console -r 0 -p 1 -f s -o `basename $f | cut -d'.' -f1`.clstmp $h
 	rm *.new
 	rm *.csv
 done

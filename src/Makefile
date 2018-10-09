@@ -6,8 +6,9 @@ STDTOCNS = stdTocNs
 CNSTODREAM = cNsToDream
 FILTER_SIZE = filter_size
 FILTER_GRAPH = filter_graph
+SIMULATION = simul
 
-ALL = $(MOLTI) $(EXTRACT) $(PARTITION) $(FILTER_SIZE) $(FILTER_GRAPH) $(STDTOCNS) $(CNSTODREAM)
+ALL = $(MOLTI) $(EXTRACT) $(PARTITION) $(FILTER_SIZE) $(FILTER_GRAPH) $(STDTOCNS) $(CNSTODREAM) $(SIMULATION)
 # .o files necessary to build the executables
 
 OBJ_MOLTI = EdgesComposition.o Louvain.o Partition.o Graph.o  Utils.o Compute.o 
@@ -17,6 +18,7 @@ OBJ_STDTOCNS = Partition.o  Utils.o StandardToClustNSee.o
 OBJ_CNSTODREAM = Partition.o  Utils.o ClustNSeeToDream.o 
 OBJ_FILTER_SIZE = Partition.o Utils.o FilterPartition.o 
 OBJ_FILTER_GRAPH = Partition.o Graph.o Utils.o FilterGraph.o 
+OBJ_SIMULATION = Louvain.o Partition.o Graph.o  Utils.o ERMG.o RandomGraph.o Simulations.o
 
 ########### MODIFY ONLY TO CHANGE OPTIONS ############
 
@@ -51,6 +53,8 @@ $(FILTER_GRAPH): $(OBJ_FILTER_GRAPH)
 	$(LD) $^ -o $@ $(LDFLAGS)
 $(PARTITION): $(OBJ_PARTITION)
 	$(LD) $^ -o $@ $(LDFLAGS)
+$(SIMULATION): $(OBJ_SIMULATION)
+	$(LD) $^ -o $@ -D_REENTRANT -L/usr/local/lib -L/usr/lib/ -lm -lpthread -O3
 
 ############ DO NOT MODIFY ANYTHING BELOW THIS LINE ##############
 
